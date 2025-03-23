@@ -1,0 +1,63 @@
+
+@font-face {
+    font-family:"special" ;
+    src: url(fonte/fonte-special.otf) format(opentype);
+}
+@font-face {
+    font-family:"special-2";
+    src: url(fonte/special-2.otf) format(opentype);
+}
+html{
+    font-size:16px;
+}
+:root{
+    --fonte-nova:"special";
+    --fonte-nova2:"special-2";
+}
+
+body{
+    background-color: black;
+    margin:0px;  
+}
+.estilo-container-animacao{
+    background-image:linear-gradient(to right,green,black);
+    border:2px solid rgb(0, 0, 0);
+    outline:1px solid rgb(6, 43, 6);
+    height:100vh;
+}
+.estilo-container-conteudo{
+    background-color:rgb(12, 31, 18);
+    border:2px solid rgb(19, 165, 6);
+    height:100vh;
+}
+.container-form{
+    background-color:white;
+    border-radius:8px;
+    height:85vh;
+    border:2px solid black;
+    outline:solid rgb(21, 255, 0);
+}
+#animation{
+    width:48.8vw;   
+}
+.titulo-principal{
+    font:normal lighter 2rem;
+    font-family: var(--fonte-nova);
+    color:rgb(7, 255, 7);
+}
+.submit{
+    margin:auto;
+}
+.p-input{
+    font-size:1.1rem;
+    color:rgb(0, 0, 0);
+}
+input{
+    border:1px solid rgb(21, 255, 0);
+    outline:2px solid black;
+    border-radius:8px;
+}
+#masculino,#feminino{
+    border:none;
+    outline:none;
+}

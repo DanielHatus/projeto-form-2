@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projeto de form com bootstrap</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js" defer></script>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+                            <!--container esquerdo-->
+        <div class="d-flex justify-content-center align-items-center col-6 estilo-container-animacao">
+                            <!--animacao-->
+            <img src="animacao.svg" alt="" id="animation">
+        </div>
+
+                        <!--container direito-->
+        <div class="d-flex justify-content-center align-items-center col-6 estilo-container-conteudo">
+                        <!--container formulário-->
+            <div class="container-form col-11">
+                <!--TITULO do formulário-->
+             <form action="#">
+                 <h1 class="text-center titulo-principal">Formulário De Login</h1>
+                 <!--nome do usuário-->
+                 <p class="p-input">Digite O Seu Nome Completo: <input type="text" name="nome" id="nome"></p>
+                 <!--data de nascimento-->
+                 <p class="p-input">Digite A Sua Data De Nascimento: <input type="date" name="" id="email"></p>
+                 <!--email do usuário-->
+                 <p class="p-input">Digite O Seu Email: <input type="email" name="" id="email"></p>
+                 <!--paragráfo pedindo o usuario para marcar o sexo dele-->
+                 <p class="p-input">Marque A Opção Referente Ao Seu Sexo:</p>
+                 <!--div que guarda os 2 inputs-radio que marcam o sexo do usuário e onde os elementos sao centelizados um ao lado do outro-->
+                 <div class="d-flex justify-content-center">
+                    <!--input-radio sobre o sexo masculino-->
+                    <div> Masculino: <input type="radio" name="radio" id="masculino"></div>
+                    <!--input-radio sobre o sexo feminino-->
+                    <div>Feminino: <input checked type="radio" name="radio" id="feminino"></div>
+                 </div>
+                 <p class="p-input">Insira A Sua Senha: <input type="password" name="" id="senha"></p>
+                 <p class="p-input">Confirme Sua Senha: <input type="password" name="" id="confirmar-senha"></p>
+                 <input onclick="enviar()" class="d-block submit" type="submit" value="Enviar Formulário">
+                  </div>
+             </form>
+        </div>   
+    </div>
+</div>
+
+<script src="codebase.js"></script>    
+</body>
+</html>
