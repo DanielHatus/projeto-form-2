@@ -1,53 +1,85 @@
-let nome=document.querySelector('#nome').value;
-let nasc=document.querySelector('#nascimento').value;
-let email=document.querySelector('#email').value;
-let senha=document.querySelector('#senha').value;
-let csenha=document.querySelector('#confirmar-senha').value;
-let masc=document.querySelector('#masculino');
-let fem=document.querySelector('#feminino');
-let ano=nasc.slice(0,4);
-ano=Number(ano);
-let mes=nasc.slice(5,7);
-mes=Number(mes);
-let dia=nasc.slice(8,10);
-dia=Number(dia);
-let vetor= [];
-function sexo(masc,fem){
-    if(masc.checked===true){
-        window.alert('é homem');
-        vetor.push('homem');
-    }
-    else if(fem.checked===true){
-        window.alert('é mulher');
-        vetor.push('mulher');
-    }
-}
+function enviar() {
+    let nome = document.querySelector('#nome').value.trim();
+    let nasc = document.querySelector('#nascimento').value;
+    let email = document.querySelector('#email').value.trim();
+    let senha = document.querySelector('#senha').value;
+    let csenha = document.querySelector('#confirmar-senha').value;
+    let masc = document.querySelector('#masculino');
+    let fem = document.querySelector('#feminino');
 
-
-function senhas(senha,csenha){
-    if(senha!=csenha){
-        window.alert('as senhas sao diferentes')
+    if (nome === '') {
+        alert('Digite o seu nome para continuar');
         return;
     }
-    vetor.push(senha);
+    else if (nasc === '') {
+        alert('Digite a sua data de nascimento para continuar');
+        return;
+    }
+    else if (email === '') {
+        alert('Digite o seu email para continuar');
+        return;
+    }
+    else if (senha === '') {
+        alert('Digite a senha para continuar');
+        return;
+    }
+    else if (csenha === '') {
+        alert('Digite a confirmação da senha para continuar');
+        return;
+    }
+
+    // Processamento da Data de Nascimento
+    let ano = Number(nasc.slice(0, 4));
+    let mes = Number(nasc.slice(5, 7));
+    let dia = Number(nasc.slice(8, 10));
+
+    // Cálculo da Idade
+    let idade = calcularIdade(dia, mes, ano);
+
+    // Verificar o Sexo
+    let genero = verificarSexo(masc, fem);
+    if (!genero) {
+        alert('Selecione um gênero');
+        return;
+    }
+
+    // Verificação das Senhas
+    if (verificarSenhas(senha, csenha)===false) {
+        alert('As senhas não são iguais');
+        return;
+    }
+    else{
+        alert('as senhas são iguais')
+        
+    }
+
+    // Criando um vetor com os dados
+    let vetor = [nome, idade, email, genero, senha];
+
+    console.log(vetor); // Exibir os dados no console
 }
 
+// Função para calcular idade
+function calcularIdade(dia, mes, ano) {
+    let hoje = new Date();
+    let anoAtual = hoje.getFullYear();
+    let mesAtual = hoje.getMonth() + 1;
+    let diaAtual = hoje.getDate();
 
-function idade(dia,mes,ano){
-let anoatual=2025;
-let mesatual=3;
-let diaatual=23;
-let idade=0;
-idade=anoatual-ano;
-if(mes>mesatual||mes==mesatual && dia>diaatual){
-    idade=idade-1;
-    vetor.push(idade);
-}
-else{
-    vetor.push(idade);
-}
+    let idade = anoAtual - ano;
+    if (mes > mesAtual || (mes === mesAtual && dia > diaAtual)) {
+        idade--;
+    }
+    return idade;
 }
 
-function enviar(){
+// Função para verificar sexo
+function verificarSexo(masc, fem) {
+    if (masc.checked===true) return 'Homem';
+    else if (fem.checked===true) return 'Mulher';
+}
 
+// Função para validar senhas
+function verificarSenhas(senha, csenha) {
+    return senha === csenha;
 }
